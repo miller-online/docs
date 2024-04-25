@@ -2,13 +2,12 @@
 slug: game-networking
 title: "The Ultimate Guide to Game Networking"
 title_meta: "Multiplayer Game Programming: Architecting Networked Games"
+authors: ["Sandro Villinger"]
+contributors: ["Sandro Villinger"]
+published: 2023-12-17
 description: 'Game networking is the technology behind multiplayer games, but how does it work? Read Linode’s guide to learn about online gaming networks.'
 keywords: ['networking games', 'game enet computer', 'computer network games', 'multiplayer game programming', 'online gaming networks']
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-authors: ["Sandro Villinger"]
-published: 2023-12-17
-modified_by:
-  name: Linode
 external_resources:
 - '[Connected Adaptive Networked Physics](https://theses.fh-hagenberg.at/system/files/pdf/Herrmann16.pdf)'
 - '[Gaffer On Games](https://gafferongames.com/)'
@@ -19,17 +18,16 @@ external_resources:
 - '[Game Development Stack Exchange](https://gamedev.stackexchange.com/questions/1520/anti-cheat-for-mmos-issues-and-solutions)'
 ---
 
-Multiplayer games rank among the most fun, immersive, and financially successful gameplay experiences in the industry. From a gamer’s perspective, playing these needs to be simple: A player sends a game invite on Steam, Epic, or any other platform, then finds a lobby and connects to a multiplayer session. These range from the sprawling Fortnite Chaos to the simpler story-driven co-op sessions of Dying Light 2.
-If you’re a game developer, getting such simplicity to work reliably, at low latency, and with security in mind, poses a massive challenge.
+Multiplayer games rank among the most fun, immersive, and financially successful gameplay experiences in the industry. From a gamer’s perspective, playing these needs to be simple: A player sends a game invite on Steam, Epic, or any other platform, then finds a lobby and connects to a multiplayer session. These range from the sprawling Fortnite Chaos to the simpler story-driven co-op sessions of Dying Light 2. If you’re a game developer, getting such simplicity to work reliably, at low latency, and with security in mind, poses a massive challenge.
 Developers need to understand what is happening behind the scenes and lines of code to make multiplayer work, and how to implement a reliable multiplayer architecture that’s devoid of cheaters.
 
-![Alt text](figure1.jpeg "Figure 1")
+![Photo of computer monitors running Age of Empires III](figure1.jpeg)
 
 ## What is Game Networking?
 
 Game networking is a key part of developing any game with multiplayer functionality. At its core, it describes the process of sending input and player information from one client in a multiplayer game to the server, or another client. Keeping this information synchronized so that two or more players can play with, or against each other, is the challenge.
 
-The complexities of implementing game networking can be daunting, as it requires game developers to master transport protocols, manage bandwidth issues, prevent cheating, and ensure proper encryption while thinking about latency when implementing all these techniques.
+The complexities of implementing game networking can be daunting. It requires game developers to master transport protocols, manage bandwidth issues, prevent cheating, and ensure proper encryption while thinking about latency when implementing all these techniques.
 
 ## ​​Why Should Game Programmers Know about Game Networking?
 
@@ -101,8 +99,8 @@ As a game developer, certain requirements lead you down the path of creating you
 
 Instead of building the UDP library yourself, many open-source libraries already include features you need such as:
 
-- **(D)DoS mitigation** to prevent a client or multiple clients from flooding your server with TCP or UDP packets
-- **Heartbeat to ensure** the client or the server is still up and performing
+- **DDoS mitigation** to prevent a client or multiple clients from flooding your server with TCP or UDP packets
+- **Heartbeat** to ensure the client or the server is still up and performing
 - **Round-Trip Time (RTT) estimations** to determine how long the transmission usually takes
 
 These libraries usually support multiple platforms and are used in existing game engines. One great example is the low-level UDP protocol [Laminar](https://github.com/TimonPost/laminar), or the open-source library [SLikeNet](https://github.com/SLikeSoft/SLikeNet), which is a fork of the now-defunct, but highly mature, Raknet networking engine. Even Valve, the maker of the popular gaming platform Steam, offers its own UDP protocol called [GameNetworkingSockets](https://github.com/ValveSoftware/GameNetworkingSockets), which comes with sophisticated NAT travel (highly critical since most users sit behind a router and aren’t directly connected to the internet), encryption and a [reliability](https://gafferongames.com/post/reliable_ordered_messages/) layer.
